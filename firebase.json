@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "chimera-studio",
+    "site": "staging-chimera-studio",
     "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
