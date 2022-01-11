@@ -1,7 +1,5 @@
-const Tokens = {
-  cms_Url: "",
-  cms_Space: "",
-  cms_Authorization: "",
+export const sessionStorageKeys = {
+  staginUser: "stagingUser",
 };
 
-export default Tokens;
+export const localStorageKeys = {};

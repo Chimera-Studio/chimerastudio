@@ -1,6 +1,9 @@
+// @flow
 import React from "react";
+import type { Node } from "react";
+import "../../styles/loading.scss";
 
-function LoadingContent() {
+function LoadingContent(): Node {
   return (
     <div className="loading-relative">
       <div className="loader">Loading...</div>

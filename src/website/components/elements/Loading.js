@@ -1,6 +1,9 @@
+// @flow
 import React from "react";
+import type { Node } from "react";
+import "../../styles/loading.scss";
 
-function Loading() {
+function Loading(): Node {
   return (
     <div className="loading-fixed">
       <div className="loader">Loading...</div>

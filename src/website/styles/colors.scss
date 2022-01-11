@@ -1,0 +1,19 @@
+$black: #000000;
+$blackTransparent: #00000030;
+$grayLight: #eaeaea;
+$primary: #524584;
+$primaryLight: #766b9c;
+$white: #ffffff;
+$white70: #f8f8f8b3;
+$white20: #f8f8f833;
+
+:export {
+  black: $black;
+  blackTransparent: $blackTransparent;
+  grayLight: $grayLight;
+  primary: $primary;
+  primaryLight: $primaryLight;
+  white: $white;
+  white70: $white70;
+  white20: $white20;
+}

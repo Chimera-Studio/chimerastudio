@@ -1,7 +1,14 @@
+// @flow
 import React from "react";
 import { Link } from "react-router-dom";
+import type { Node } from "react";
+import "../../styles/error.scss";
 
-function Error(props) {
+type Props = {
+  error: string,
+};
+
+function Error(props: Props): Node {
   return (
     <div className="error-wrapper">
       <div className="error-title">Error...</div>

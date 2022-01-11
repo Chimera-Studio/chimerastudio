@@ -1,9 +1,11 @@
+// @flow
 import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 
-// import App from "./website/App";
 import App from "./under-construction/App";
+// import App from "./website/App";
+import "./index.scss";
 
 ReactDOM.render(<App />, document.querySelector("#root"));
 

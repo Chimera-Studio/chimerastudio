@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "chimera-studio"
+  },
+  "targets": {
+    "chimera-studio": {
+      "hosting": {
+        "staging": [
+          "staging-chimera-studio"
+        ],
+        "production": [
+          "chimera-studio"
+        ]
+      }
+    }
   }
 }

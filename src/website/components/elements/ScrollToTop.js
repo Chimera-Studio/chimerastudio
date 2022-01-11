@@ -1,16 +1,19 @@
+// @flow
 import React, { useEffect, useState } from "react";
+import type { Node } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
-var screenHeight = Math.max(
-  document.documentElement.clientHeight || 0,
+const screenHeight = Math.max(
+  document.documentElement?.clientHeight || 0,
   window.innerHeight || 0
 );
-function ScrollToTop() {
+
+function ScrollToTop(): Node {
   const [show, setShow] = useState(false);
 
   const handleScroll = () => {
-    var scrollOffset = window.pageYOffset >= screenHeight * 0.8;
+    const scrollOffset = window.pageYOffset >= screenHeight * 0.8;
     if (scrollOffset) {
       setShow(true);
     } else {
@@ -32,6 +35,7 @@ function ScrollToTop() {
       window.removeEventListener("scroll", () => handleScroll);
     };
   }, []);
+
   return (
     <div id="to-top" className={show ? "active" : ""} onClick={toTop}>
       <FontAwesomeIcon icon={faAngleUp} />
