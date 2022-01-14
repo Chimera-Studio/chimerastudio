@@ -24,4 +24,5 @@ yarn-error.log*
 
 # sensitive info
 .env
+.firebase
 firebase.json

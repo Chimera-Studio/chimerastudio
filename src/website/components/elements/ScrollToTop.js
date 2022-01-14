@@ -4,10 +4,7 @@ import type { Node } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
-const screenHeight = Math.max(
-  document.documentElement?.clientHeight || 0,
-  window.innerHeight || 0
-);
+const screenHeight = window.innerHeight || 0;
 
 function ScrollToTop(): Node {
   const [show, setShow] = useState(false);
