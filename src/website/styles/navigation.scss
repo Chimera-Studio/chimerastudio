@@ -1,0 +1,45 @@
+.navigation {
+  align-items: center;
+  background-color: $white;
+  display: flex;
+  height: 75px;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  box-shadow: 0 6px 24px rgba($black, 0.4);
+  top: 0;
+  width: 100vw;
+  z-index: 99;
+
+  .navigation-wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    margin: 0 60px;
+    max-width: 1220px;
+    width: 100%;
+
+    @media screen and (max-width: "769px") {
+      margin: 0 30px;
+    }
+
+    .nav-link {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: normal;
+      margin-left: 100px;
+      color: rgba($primary, 0.8);
+      transition: 0.3s;
+
+      &:hover {
+        color: $primary;
+      }
+
+      &.logo {
+        height: 35px;
+        width: 35px;
+      }
+    }
+  }
+}

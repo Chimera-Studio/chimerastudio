@@ -9,6 +9,7 @@ import {
 import { isEmpty } from "lodash";
 import type { Node } from "react";
 
+import Navigation from "./blocks/Navigation";
 import ScrollToTop from "./elements/ScrollToTop";
 import Footer from "./elements/Footer";
 import Login from "../../staging/Login";
@@ -54,6 +55,7 @@ function Body(): Node {
 
   return (
     <Router>
+      <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="*" element={<Navigate to="/" />} />

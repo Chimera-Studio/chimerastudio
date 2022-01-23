@@ -20,7 +20,8 @@ export const useEnvironmentInfo = (): {
   ...
 } => {
   const development = window.location.hostname === "";
-  const production = window.location.hostname === "localwoofers.com";
+  // const production = window.location.hostname === "chimera-studio.com";
+  const production = !window.location.href.includes("staging");
   const staging = window.location.href.includes("staging");
 
   return {

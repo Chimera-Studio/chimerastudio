@@ -1,7 +1,6 @@
 // @flow
 import React from "react";
 import type { Node } from "react";
-import "../../styles/loading.scss";
 
 function Loading(): Node {
   return (
