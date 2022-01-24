@@ -16,6 +16,10 @@
     "projects": {
       "title": "Our Latest Apps",
       "paragraph": "At the very moment you can find three of our latest apps at the Play Store and App Store. We do not only specialise in entertainment, but educational tools as well. Negative Harmony is one of them, currently a leading circle-of-fifths-based music producing tool on the market."
+    },
+    "hire-cta": "Hire us",
+    "team": {
+      "cta": "Visit"
     }
   }
 }

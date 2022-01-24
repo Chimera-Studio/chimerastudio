@@ -4,7 +4,7 @@ import { useLocation } from "react-router";
 // $FlowFixMe
 export const isPromise = (p) => !!p && typeof p.then === "function";
 
-export const useLocationInfo = (): { isHome: boolean, ... } => {
+export const useLocationInfo = (): { isHome: boolean } => {
   const location = useLocation();
   const home = location.pathname === "/";
 

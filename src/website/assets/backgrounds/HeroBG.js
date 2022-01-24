@@ -3,8 +3,8 @@ import React from "react";
 import type { Node } from "react";
 
 type Props = {
-  height?: number | string,
   className?: string,
+  height?: number | string,
   width?: number | string,
 };
 

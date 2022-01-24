@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import type { Node } from "react";
-import { NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 import Logo from "../../assets/icons/Logo";
 
 function Navigation(): Node {
@@ -20,13 +20,19 @@ function Navigation(): Node {
   return (
     <nav className="navigation">
       <div className="navigation-wrapper">
-        <div className="logo" onClick={toTop}>
+        <NavHashLink to="/" onClick={toTop} className="logo">
           <Logo />
-        </div>
+        </NavHashLink>
         {links.map((link) => (
-          <NavLink key={link.path} to={link.path} className="nav-link">
+          <NavHashLink
+            key={link.path}
+            to={link.path}
+            className="nav-link"
+            activeClassName="active"
+            smooth
+          >
             {link.label}
-          </NavLink>
+          </NavHashLink>
         ))}
       </div>
     </nav>

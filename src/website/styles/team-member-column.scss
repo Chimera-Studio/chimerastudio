@@ -1,0 +1,80 @@
+.member-column {
+  background-color: $whiteTint;
+  border-radius: 100vw 100vw 50vw 50vw;
+  box-shadow: 0 12px 12px rgba($black, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: flex-start;
+  max-height: 800px;
+  max-width: 325px;
+  width: 325px;
+
+  .member-image {
+    aspect-ratio: 1/1;
+    background-color: $primary;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    img {
+      aspect-ratio: 1/1;
+      filter: grayscale(0.6);
+      width: 100%;
+    }
+
+    &::after {
+      background-color: $primary;
+      content: "";
+      height: 100%;
+      left: 0;
+      opacity: 0.3;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
+  .member-name {
+    color: $grayDark;
+    font-size: 25px;
+    margin: 40px 40px 0 40px;
+    text-align: center;
+  }
+
+  .member-role {
+    color: $grayDark;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: lighter;
+    margin: 10px 40px 0 40px;
+    text-align: center;
+  }
+
+  .member-description {
+    color: $grayDark;
+    flex: 1;
+    font-size: 16px;
+    line-height: 30px;
+    margin: 50px 40px;
+  }
+
+  .member-cta {
+    align-items: center;
+    background-color: $primary;
+    border-radius: 0 0 50vw 50vw;
+    cursor: pointer;
+    display: flex;
+    height: 80px;
+    justify-self: center;
+
+    span {
+      color: $white;
+      font-size: 25px;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}

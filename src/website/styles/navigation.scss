@@ -24,6 +24,13 @@
       margin: 0 30px;
     }
 
+    .logo {
+      cursor: pointer;
+      fill: $primary;
+      height: 35px;
+      width: 35px;
+    }
+
     .nav-link {
       cursor: pointer;
       font-size: 14px;
@@ -32,13 +39,9 @@
       color: rgba($primary, 0.8);
       transition: 0.3s;
 
-      &:hover {
+      &:hover,
+      &.active {
         color: $primary;
-      }
-
-      &.logo {
-        height: 35px;
-        width: 35px;
       }
     }
   }
