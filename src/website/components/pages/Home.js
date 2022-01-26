@@ -8,6 +8,7 @@ import Project from "../elements/Project";
 import Logo from "../../assets/icons/Logo";
 import HeroBG from "../../assets/backgrounds/HeroBG";
 import useLocale from "../../locale";
+import colors from "../../styles/_colors.scss";
 
 function Home(): Node {
   const t = useLocale;
@@ -42,7 +43,10 @@ function Home(): Node {
 
   const projects = [
     {
-      album: [require("../../assets/images/negative-harmony/slide_1.jpeg")],
+      album: [
+        require("../../assets/images/negative-harmony/slide_1.jpeg"),
+        require("../../assets/images/negative-harmony/slide_1.jpeg"),
+      ],
       appName: "Negative Harmony",
       appTagline: "Simplified",
       paragraph:
@@ -69,8 +73,7 @@ function Home(): Node {
       appTagline: "A Perfect Party Started",
       paragraph:
         "Chug is a perfect party starter drinking game meant to be played with others. You will discover funny, interesting and weird things you didn't know about your friends. There are over 700 unique sentences across 12 themes and every person is sure to take a sip at least a few times.",
-      appStoreLink:
-        "https://apps.apple.com/us/app/negative-harmony-simplified/id1561674380",
+      appStoreLink: "",
       playStoreLink:
         "https://play.google.com/store/apps/details?id=com.chimerastudio.negativeharmony",
     },
@@ -90,7 +93,13 @@ function Home(): Node {
   return (
     <main className="home">
       <section id="header">
-        <HeroBG className="hero-bg" />
+        <HeroBG
+          className="hero-bg"
+          gradientColors={{
+            startColor: colors.primary,
+            stopColor: colors.primaryMid,
+          }}
+        />
         <Logo className="hero-logo" />
         <div className="content">
           <h1 className="title">{t("home.header.title")}</h1>

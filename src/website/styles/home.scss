@@ -1,4 +1,4 @@
-.home {
+main.home {
   .section {
     align-items: center;
     display: flex;
@@ -42,13 +42,14 @@
       width: 100vw;
 
       .top {
+        position: inherit;
         width: 100%;
         z-index: 2;
       }
 
       .bottom {
         margin-top: -100%;
-        transform: translateY(50px);
+        transform: scale(1.2);
         width: 100%;
         z-index: 1;
       }
@@ -61,6 +62,7 @@
       right: 0;
       top: 0;
       transform: translate(40%, -20%);
+      z-index: 3;
     }
 
     .content {
@@ -95,7 +97,7 @@
     margin: -80px 60px 0 60px;
     max-width: 1400px;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
 
     .hire-button {
       align-items: center;

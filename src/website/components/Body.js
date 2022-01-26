@@ -14,6 +14,7 @@ import ScrollToTop from "./elements/ScrollToTop";
 import Footer from "./elements/Footer";
 import Login from "../../staging/Login";
 import Home from "./pages/Home";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 import { useEnvironmentInfo } from "../utils";
 import { sessionStorageKeys } from "../tokens";
@@ -58,7 +59,7 @@ function Body(): Node {
       <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/privacy-policy" element={<Home />} />
+        <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 

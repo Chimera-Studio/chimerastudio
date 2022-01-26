@@ -1,11 +1,14 @@
 // @flow
 import React from "react";
 import type { Node } from "react";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
 import classNames from "classnames";
+import useLocale from "../../locale";
 import Logo from "../../assets/icons/Logo";
 
 function Navigation(): Node {
+  const t = useLocale;
   const location = useLocation();
   const links = [
     { path: "#about", label: "About Us" },
@@ -22,9 +25,9 @@ function Navigation(): Node {
   return (
     <nav className="navigation">
       <div className="navigation-wrapper">
-        <a href="/" onClick={toTop} className="logo">
+        <Link to="/" onClick={toTop} className="logo">
           <Logo />
-        </a>
+        </Link>
         {links.map((link) => (
           <a
             key={link.path}
@@ -36,6 +39,7 @@ function Navigation(): Node {
             {link.label}
           </a>
         ))}
+        <button className="nav-hire">{t("home.hire-cta")}</button>
       </div>
     </nav>
   );

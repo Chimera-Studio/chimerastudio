@@ -12,29 +12,18 @@ type Props = {
 const PlayStore = (props: Props): Node => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 233.224 80.213"
+    viewBox="0 0 216 63"
     className={props.className}
     fill={props.color}
     width={props.width}
     height={props.height}
   >
     <defs>
-      <filter
-        id="Rectangle_16"
-        x="0"
-        y="0"
-        width="233.224"
-        height="80.213"
-        filterUnits="userSpaceOnUse"
-      >
-        <feOffset dy="6" input="SourceAlpha" />
-        <feGaussianBlur stdDeviation="3" result="blur" />
-        <feFlood floodOpacity="0.161" />
-        <feComposite operator="in" in2="blur" />
+      <filter id="Rectangle_16" x="0" y="0" filterUnits="userSpaceOnUse">
         <feComposite in="SourceGraphic" />
       </filter>
     </defs>
-    <g id="Google" transform="translate(9 3)">
+    <g id="Google">
       <g id="Group_7" data-name="Group 7" transform="translate(0 0)">
         <g transform="matrix(1, 0, 0, 1, -9, -3)" filter="url(#Rectangle_16)">
           <path

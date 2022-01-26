@@ -7,6 +7,7 @@ import PhoneSlideShow from "./PhoneSlideShow";
 import HeroBG from "../../assets/backgrounds/HeroBG";
 import AppStore from "../../assets/icons/AppStore";
 import PlayStore from "../../assets/icons/PlayStore";
+import colors from "../../styles/_colors.scss";
 
 type ProjectProps = {
   album: Array<string>,
@@ -41,7 +42,13 @@ function Project(props: Props): Node {
   return (
     <div className={projectClass}>
       {props.isFirst || props.isLast ? (
-        <HeroBG className={bgClassDiagonal} />
+        <HeroBG
+          className={bgClassDiagonal}
+          gradientColors={{
+            startColor: colors.primary,
+            stopColor: colors.primaryMid,
+          }}
+        />
       ) : (
         <div className="square-background" />
       )}
