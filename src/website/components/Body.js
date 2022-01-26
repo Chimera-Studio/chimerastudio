@@ -58,6 +58,7 @@ function Body(): Node {
       <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/privacy-policy" element={<Home />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 

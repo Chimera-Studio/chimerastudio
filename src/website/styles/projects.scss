@@ -1,0 +1,144 @@
+.project-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  .style-background {
+    height: 100%;
+    position: relative;
+    width: 100vw;
+
+    &.isFirst {
+      -webkit-transform: rotate(180deg) scaleX(-1);
+      transform: rotate(180deg) scaleX(-1);
+    }
+
+    .top {
+      width: 100%;
+      z-index: 2;
+    }
+
+    .bottom {
+      margin-top: -100%;
+      transform: translateY(50px);
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
+  .square-background {
+    background: linear-gradient(90deg, rgba(82, 69, 132, 1) 0%, rgba(118, 107, 156, 1) 100%);
+    height: 100%;
+    width: 100vw;
+  }
+
+  &.isMiddle {
+    .square-background {
+      left: auto;
+      position: absolute;
+      top: auto;
+      z-index: 1;
+    }
+
+    .project-content-wrapper {
+      position: relative;
+    }
+  }
+
+  .project-content-wrapper {
+    align-items: center;
+    display: flex;
+    gap: 100px;
+    height: 100%;
+    justify-content: space-between;
+    left: 50%;
+    max-width: 1400px;
+    padding: 250px 0;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 2;
+
+    &.isOdd {
+      flex-direction: row-reverse;
+    }
+
+    &.isEven {
+      flex-direction: row;
+    }
+
+    .slide-wrapper {
+      max-width: 350px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+
+      .slider {
+        align-items: center;
+        border-radius: 50px;
+        display: flex;
+        height: 97%;
+        justify-content: center;
+        left: 5%;
+        overflow: hidden;
+        position: absolute;
+        top: 0%;
+        width: 90%;
+        z-index: 1;
+      }
+
+      svg {
+        height: 100%;
+        position: inherit;
+        width: 100%;
+        z-index: 2;
+      }
+    }
+
+    .project-content {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 880px;
+      width: 100%;
+
+      .project-title {
+        color: $white;
+        font-size: 55px;
+        font-weight: bold;
+      }
+
+      .project-tagline {
+        color: rgba($primaryLight, 0.8);
+        font-size: 45px;
+        font-weight: bold;
+      }
+
+      .project-paragraph {
+        color: $white;
+        font-size: 18px;
+        line-height: 40px;
+        margin: 50px 0;
+      }
+
+      .cta-wrapper {
+        align-items: center;
+        display: flex;
+        gap: 50px;
+        justify-content: space-between;
+
+        a {
+          cursor: pointer;
+
+          svg {
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
+}

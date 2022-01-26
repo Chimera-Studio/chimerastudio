@@ -4,6 +4,7 @@ import type { Node } from "react";
 import ReactDOM from "react-dom";
 import HireForm from "../blocks/HireForm";
 import TeamMemberColumn from "../elements/TeamMemberColumn";
+import Project from "../elements/Project";
 import Logo from "../../assets/icons/Logo";
 import HeroBG from "../../assets/backgrounds/HeroBG";
 import useLocale from "../../locale";
@@ -36,6 +37,42 @@ function Home(): Node {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis sapien tincidunt ipsum tempus mattis. Phasellus luctus dolor eu mauris tincidunt, sit amet elementum metus dignissim. Proin placerat dignissim velit, ac iaculis sapien efficitur in. Integer id tempor nisl. Duis euismod sed magna ac commodo. Sed convallis mauris a eros bibendum varius. Morbi commodo tortor eu congue porta. Pellentesque hendrerit, nibh et aliquam tempus, nunc tellus aliquet eros, et pretium ipsum ligula et enim. Vivamus sed ipsum felis. Maecenas finibus ligula nec lacus bibendum, in imperdiet purus tincidunt. Etiam lobortis sem neque, eget sollicitudin velit sagittis finibus.",
       link: "https://linktr.ee/dariodumlijan",
+    },
+  ];
+
+  const projects = [
+    {
+      album: [require("../../assets/images/negative-harmony/slide_1.jpeg")],
+      appName: "Negative Harmony",
+      appTagline: "Simplified",
+      paragraph:
+        "Negative Harmony is an app made to make the musical theory of negative harmony easier to understand and visualise. The app shows in a clear and easy way to understand what are the notes inside the chosen scale/mode and their relative negative harmony while also representing this inside the circle of fifths with the blue axis showing the relationship between each note.",
+      appStoreLink:
+        "https://apps.apple.com/us/app/negative-harmony-simplified/id1561674380",
+      playStoreLink:
+        "https://play.google.com/store/apps/details?id=com.chimerastudio.negativeharmony",
+    },
+    {
+      album: [require("../../assets/images/negative-harmony/slide_1.jpeg")],
+      appName: "Ritmo",
+      appTagline: "Beatmaking Redefined",
+      paragraph:
+        "Ritmo is a redefined beatmaker. It is meant to help people create new and interesting beats/rhythms in a way they never made them before. Encouraging the user to think of a beat as a circle instead of a straight path, you can more easily see and find new possibilities.",
+      appStoreLink:
+        "https://apps.apple.com/us/app/negative-harmony-simplified/id1561674380",
+      playStoreLink:
+        "https://play.google.com/store/apps/details?id=com.chimerastudio.negativeharmony",
+    },
+    {
+      album: [require("../../assets/images/negative-harmony/slide_1.jpeg")],
+      appName: "Chug",
+      appTagline: "A Perfect Party Started",
+      paragraph:
+        "Chug is a perfect party starter drinking game meant to be played with others. You will discover funny, interesting and weird things you didn't know about your friends. There are over 700 unique sentences across 12 themes and every person is sure to take a sip at least a few times.",
+      appStoreLink:
+        "https://apps.apple.com/us/app/negative-harmony-simplified/id1561674380",
+      playStoreLink:
+        "https://play.google.com/store/apps/details?id=com.chimerastudio.negativeharmony",
     },
   ];
 
@@ -79,6 +116,15 @@ function Home(): Node {
         <span className="section-paragraph">
           {t("home.projects.paragraph")}
         </span>
+        {projects.map((project, index) => (
+          <Project
+            key={project.appName}
+            data={project}
+            isFirst={index === 0}
+            isLast={index === projects.length - 1}
+            index={index}
+          />
+        ))}
       </section>
       {showHireForm &&
         ReactDOM.createPortal(

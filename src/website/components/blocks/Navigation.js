@@ -1,10 +1,12 @@
 // @flow
 import React from "react";
 import type { Node } from "react";
-import { NavHashLink } from "react-router-hash-link";
+import { useLocation } from "react-router";
+import classNames from "classnames";
 import Logo from "../../assets/icons/Logo";
 
 function Navigation(): Node {
+  const location = useLocation();
   const links = [
     { path: "#about", label: "About Us" },
     { path: "#projects", label: "Projects" },
@@ -20,19 +22,19 @@ function Navigation(): Node {
   return (
     <nav className="navigation">
       <div className="navigation-wrapper">
-        <NavHashLink to="/" onClick={toTop} className="logo">
+        <a href="/" onClick={toTop} className="logo">
           <Logo />
-        </NavHashLink>
+        </a>
         {links.map((link) => (
-          <NavHashLink
+          <a
             key={link.path}
-            to={link.path}
-            className="nav-link"
-            activeClassName="active"
-            smooth
+            href={link.path}
+            className={classNames("nav-link", {
+              active: location.hash === link.path,
+            })}
           >
             {link.label}
-          </NavHashLink>
+          </a>
         ))}
       </div>
     </nav>

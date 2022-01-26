@@ -5,6 +5,7 @@
   padding: 115px 0;
   text-align: center;
   width: auto;
+  position: relative;
 
   @media screen and (max-width: 991px) {
     margin: 0 40px;
@@ -14,5 +15,34 @@
     color: $black;
     font-size: 10pt;
     padding: 10pt 0;
+  }
+
+  .privacy-policy {
+    align-items: center;
+    background-color: $grayDark;
+    border-radius: 100vw 0 0 100vw;
+    cursor: pointer;
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    width: 90px;
+    transition: 0.3s;
+
+    &:hover {
+      width: 110px;
+
+      span {
+        padding-right: 20px;
+      }
+    }
+
+    span {
+      color: $white;
+      font-size: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
   }
 }

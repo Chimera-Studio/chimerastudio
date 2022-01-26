@@ -29,7 +29,7 @@ function TeamMemberColumn(props: Props): Node {
         {props.member.description.substring(0, 162)}
       </span>
       <a className="member-cta" href={props.member.link} target="_blank">
-        <span>{t("home.team.cta")}</span>
+        <span>{t("home.about.cta")}</span>
       </a>
     </div>
   );
