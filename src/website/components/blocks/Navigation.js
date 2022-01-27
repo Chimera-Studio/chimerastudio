@@ -7,12 +7,16 @@ import classNames from "classnames";
 import useLocale from "../../locale";
 import Logo from "../../assets/icons/Logo";
 
-function Navigation(): Node {
+type Props = {
+  callHireForm: Function,
+}
+
+function Navigation(props: Props): Node {
   const t = useLocale;
   const location = useLocation();
   const links = [
-    { path: "#about", label: "About Us" },
-    { path: "#projects", label: "Projects" },
+    { path: "/#about", label: "About Us" },
+    { path: "/#projects", label: "Projects" },
   ];
 
   const toTop = () => {
@@ -39,7 +43,7 @@ function Navigation(): Node {
             {link.label}
           </a>
         ))}
-        <button className="nav-hire">{t("home.hire-cta")}</button>
+        <button onClick={() => props.callHireForm()} className="nav-hire">{t("home.hire-cta")}</button>
       </div>
     </nav>
   );

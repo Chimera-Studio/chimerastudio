@@ -6,10 +6,12 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import ReactDOM from "react-dom";
 import { isEmpty } from "lodash";
 import type { Node } from "react";
 
 import Navigation from "./blocks/Navigation";
+import HireForm from "./blocks/HireForm";
 import ScrollToTop from "./elements/ScrollToTop";
 import Footer from "./elements/Footer";
 import Login from "../../staging/Login";
@@ -22,6 +24,7 @@ import { sessionStorageKeys } from "../tokens";
 function Body(): Node {
   const environment = useEnvironmentInfo();
   const [authenticated, setAuthenticated] = useState(false);
+  const [showHireForm, setShowHireForm] = useState(false);
 
   const handleLogin = (credentials: Object) => {
     if (
@@ -56,15 +59,22 @@ function Body(): Node {
 
   return (
     <Router>
-      <Navigation />
+      <Navigation callHireForm={() => setShowHireForm(true)} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home callHireForm={() => setShowHireForm(true)} />} />
         <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
       <ScrollToTop />
       <Footer />
+      {showHireForm &&
+        ReactDOM.createPortal(
+          <div className="modal-overlay">
+            <HireForm close={() => setShowHireForm(false)} />
+          </div>,
+          document.getElementById("root")
+        )}
     </Router>
   );
 }

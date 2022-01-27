@@ -1,8 +1,6 @@
 // @flow
-import React, { useState } from "react";
+import React from "react";
 import type { Node } from "react";
-import ReactDOM from "react-dom";
-import HireForm from "../blocks/HireForm";
 import TeamMemberColumn from "../elements/TeamMemberColumn";
 import Project from "../elements/Project";
 import Logo from "../../assets/icons/Logo";
@@ -10,9 +8,12 @@ import HeroBG from "../../assets/backgrounds/HeroBG";
 import useLocale from "../../locale";
 import colors from "../../styles/_colors.scss";
 
-function Home(): Node {
+type Props = {
+  callHireForm: Function,
+}
+
+function Home(props: Props): Node {
   const t = useLocale;
-  const [showHireForm, setShowHireForm] = useState(false);
 
   const members = [
     {
@@ -44,8 +45,7 @@ function Home(): Node {
   const projects = [
     {
       album: [
-        require("../../assets/images/negative-harmony/slide_1.jpeg"),
-        require("../../assets/images/negative-harmony/slide_1.jpeg"),
+        require("../../assets/images/negative-harmony/slide_1.png"),
       ],
       appName: "Negative Harmony",
       appTagline: "Simplified",
@@ -57,7 +57,7 @@ function Home(): Node {
         "https://play.google.com/store/apps/details?id=com.chimerastudio.negativeharmony",
     },
     {
-      album: [require("../../assets/images/negative-harmony/slide_1.jpeg")],
+      album: [require("../../assets/images/negative-harmony/slide_1.png")],
       appName: "Ritmo",
       appTagline: "Beatmaking Redefined",
       paragraph:
@@ -68,7 +68,7 @@ function Home(): Node {
         "https://play.google.com/store/apps/details?id=com.chimerastudio.negativeharmony",
     },
     {
-      album: [require("../../assets/images/negative-harmony/slide_1.jpeg")],
+      album: [require("../../assets/images/negative-harmony/slide_1.png")],
       appName: "Chug",
       appTagline: "A Perfect Party Started",
       paragraph:
@@ -107,7 +107,7 @@ function Home(): Node {
         </div>
       </section>
       <section id="hire-us">
-        <button className="hire-button" onClick={() => setShowHireForm(true)}>
+        <button className="hire-button" onClick={() => props.callHireForm()}>
           {t("home.hire-cta")}
         </button>
       </section>
@@ -135,13 +135,6 @@ function Home(): Node {
           />
         ))}
       </section>
-      {showHireForm &&
-        ReactDOM.createPortal(
-          <div className="modal-overlay">
-            <HireForm close={() => setShowHireForm(false)} />
-          </div>,
-          document.getElementById("root")
-        )}
     </main>
   );
 }
