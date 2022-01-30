@@ -19,9 +19,11 @@
     margin: 0 60px;
     max-width: 1400px;
     width: 100%;
+    z-index: 2;
 
-    @media screen and (max-width: "769px") {
+    @media only screen and (max-width: "769px") {
       margin: 0 30px;
+      background-color: $white;
     }
 
     .logo {
@@ -38,6 +40,10 @@
       font-weight: normal;
       margin-left: 100px;
       transition: 0.3s;
+
+      @media only screen and (max-width: "769px") {
+        display: none;
+      }
 
       &:hover,
       &.active {
@@ -56,9 +62,71 @@
       padding: 12px 20px;
       transition: 0.3s;
 
+      @media only screen and (max-width: "769px") {
+        margin-right: 60px;
+      }
+
       &:hover {
         background-color: $primary;
         color: $white;
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      color: $grayDark;
+      font-size: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      @media only screen and (max-width: "769px") {
+        display: block;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+    gap: 100px;
+    padding: 80px 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    box-shadow: 0px 10px 20px -10px rgba($black, 0.4);
+    z-index: 1;
+    transition: 0.5s;
+    transform: translateY(-150%);
+
+    @media only screen and (max-width: "769px") {
+      display: flex;
+    }
+
+    &.show {
+      top: 75px;
+      transform: translateY(0);
+    }
+
+    .nav-link {
+      color: rgba($primary, 0.8);
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: block;
+
+      &:hover,
+      &.active {
+        color: $primary;
       }
     }
   }

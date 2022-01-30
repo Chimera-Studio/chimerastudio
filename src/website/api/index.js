@@ -1,7 +1,10 @@
 // @flow
 import axios from "axios";
-import { database } from "./firebase.config";
+// import sgMail from "@sendgrid/mail";
+// import { database } from "./firebase.config";
 import cmsHeader from "./cms.config";
+
+// sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
 
 export const fetchCMS = async (query: any): any => {
   try {
@@ -21,11 +24,25 @@ export const fetchCMS = async (query: any): any => {
   }
 };
 
-export const fetchFirebaseDoc = async (
-  collection: string,
-  doc: string
-): any => {
-  const response = await database.collection(collection).doc(doc).get();
+// export const sendForm = async (message: string): any => {
+//   try {
+//     // await sgMail.send({
+//     //   to: "contact@dariodumlijan.com",
+//     //   from: "contact@dariodumlijan.com",
+//     //   subject: "Chimera - Hire form",
+//     //   text: message,
+//     //   // html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+//     // });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
-  return response;
-};
+// export const fetchFirebaseDoc = async (
+//   collection: string,
+//   doc: string
+// ): any => {
+//   const response = await database.collection(collection).doc(doc).get();
+
+//   return response;
+// };

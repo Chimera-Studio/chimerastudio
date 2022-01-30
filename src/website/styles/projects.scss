@@ -4,12 +4,25 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  width: 100%;
 
   .style-background {
     height: 100%;
     position: relative;
     width: 100vw;
     z-index: 0;
+
+    @media only screen and (max-width: "1200px") {
+      background: linear-gradient(90deg, $primary 0%, $primaryMid 100%);
+      padding-bottom: 200px;
+    }
+
+    @media only screen and (max-width: "991px") {
+      left: auto;
+      position: absolute;
+      top: auto;
+      z-index: 1;
+    }
 
     &.isFirst {
       -webkit-transform: rotate(180deg) scaleX(-1);
@@ -20,13 +33,24 @@
       position: inherit;
       width: 100%;
       z-index: 2;
+      transform: scale(1.2);
+
+      @media only screen and (max-width: "1200px") {
+        visibility: none;
+        opacity: 0;
+      }
     }
 
     .bottom {
       margin-top: -100%;
-      transform: scale(1.2);
+      transform: scale(1.4);
       width: 100%;
       z-index: 1;
+
+      @media only screen and (max-width: "1200px") {
+        visibility: none;
+        opacity: 0;
+      }
     }
   }
 
@@ -46,6 +70,7 @@
 
     .project-content-wrapper {
       position: relative;
+      padding: 200px 0;
     }
   }
 
@@ -57,12 +82,20 @@
     justify-content: space-between;
     left: 50%;
     max-width: 1400px;
-    padding: 250px 0;
+    padding: 200px 0;
     position: absolute;
     top: 0;
     transform: translateX(-50%);
     width: 100%;
     z-index: 2;
+
+    @media only screen and (max-width: "991px") {
+      flex-direction: column !important;
+      height: auto;
+      padding: 100px 0;
+      position: relative;
+      z-index: 1;
+    }
 
     &.isOdd {
       flex-direction: row-reverse;
@@ -73,7 +106,7 @@
     }
 
     .slide-wrapper {
-      max-width: 350px;
+      max-width: 280px;
       overflow: hidden;
       padding-bottom: 18px;
       position: relative;
@@ -107,9 +140,13 @@
 
         .react-slideshow-container {
           height: 100%;
-          max-width: 350px;
+          max-width: 280px;
           width: 100%;
           transition: 0.3s;
+
+          .react-slideshow-wrapper {
+            border-radius: 30px;
+          }
 
           &:hover .arrow {
             opacity: 1;
@@ -163,24 +200,34 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 880px;
+      max-width: 750px;
       width: 100%;
+
+      @media only screen and (max-width: "991px") {
+        max-width: none;
+      }
 
       .project-title {
         color: $white;
-        font-size: 55px;
+        font-size: 40px;
         font-weight: bold;
-      }
+        text-shadow: 0 2px 4px rgba($black, 0.25);
 
-      .project-tagline {
-        color: rgba($primaryLight, 0.8);
-        font-size: 45px;
-        font-weight: bold;
+        @media only screen and (max-width: "991px") {
+          align-self: center;
+        }
+
+        .project-tagline {
+          color: rgba($primaryLight, 0.8);
+          font-size: 35px;
+          font-weight: bold;
+          text-shadow: 0 2px 4px rgba($black, 0.25);
+        }
       }
 
       .project-paragraph {
         color: $white;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 40px;
         margin: 50px 0;
       }
@@ -190,6 +237,13 @@
         display: flex;
         gap: 50px;
         justify-content: space-between;
+
+        @media only screen and (max-width: "991px") {
+          align-self: center;
+          flex-wrap: wrap;
+          gap: 25px;
+          justify-content: center;
+        }
 
         a {
           cursor: pointer;

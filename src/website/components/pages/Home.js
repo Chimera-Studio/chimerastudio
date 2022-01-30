@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import React, { useEffect } from "react";
 import type { Node } from "react";
 import TeamMemberColumn from "../elements/TeamMemberColumn";
 import Project from "../elements/Project";
@@ -10,10 +10,14 @@ import colors from "../../styles/_colors.scss";
 
 type Props = {
   callHireForm: Function,
-}
+};
 
 function Home(props: Props): Node {
   const t = useLocale;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const members = [
     {
@@ -44,9 +48,7 @@ function Home(props: Props): Node {
 
   const projects = [
     {
-      album: [
-        require("../../assets/images/negative-harmony/slide_1.png"),
-      ],
+      album: [require("../../assets/images/negative-harmony/slide_1.png")],
       appName: "Negative Harmony",
       appTagline: "Simplified",
       paragraph:

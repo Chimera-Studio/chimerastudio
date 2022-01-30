@@ -19,7 +19,7 @@ export const useEnvironmentInfo = (): {
   isStaging: boolean,
   ...
 } => {
-  const development = window.location.hostname === "";
+  const development = window.location.hostname === "localhost";
   // const production = window.location.hostname === "chimera-studio.com";
   const production = !window.location.href.includes("staging");
   const staging = window.location.href.includes("staging");

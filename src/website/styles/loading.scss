@@ -26,7 +26,7 @@
   text-align: center;
   top: 0;
 
-  @media screen and (max-width: 991px) {
+  @media only screen and (max-width: "991px") {
     font-size: 12px;
   }
 

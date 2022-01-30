@@ -12,6 +12,11 @@ main.home {
       color: $primary;
       font-size: 65px;
       font-weight: bold;
+      text-align: center;
+
+      @media only screen and (max-width: "991px") {
+        font-size: 45px;
+      }
 
       .light-word {
         color: $primaryLight;
@@ -25,6 +30,10 @@ main.home {
       width: 100%;
       margin: 60px auto 140px auto;
       text-align: center;
+
+      @media only screen and (max-width: "991px") {
+        font-size: 16px;
+      }
     }
   }
 
@@ -45,6 +54,14 @@ main.home {
         position: inherit;
         width: 100%;
         z-index: 2;
+
+        @media only screen and (max-width: "550px") {
+          transform: scale(2.2);
+        }
+
+        @media only screen and (max-width: "440px") {
+          transform: scale(1.4);
+        }
       }
 
       .bottom {
@@ -52,6 +69,14 @@ main.home {
         transform: scale(1.2);
         width: 100%;
         z-index: 1;
+
+        @media only screen and (max-width: "550px") {
+          transform: scale(2.4);
+        }
+
+        @media only screen and (max-width: "440px") {
+          transform: scale(1.8);
+        }
       }
     }
 
@@ -62,7 +87,11 @@ main.home {
       right: 0;
       top: 0;
       transform: translate(40%, -20%);
-      z-index: 3;
+      z-index: 2;
+
+      @media only screen and (max-width: "769px") {
+        display: none;
+      }
     }
 
     .content {
@@ -73,22 +102,61 @@ main.home {
       justify-content: center;
       left: 50%;
       max-width: 1400px;
+      padding: 0 60px;
       position: absolute;
       top: 0;
       transform: translateX(-50%);
       width: 100%;
-      z-index: 2;
+      z-index: 3;
+
+      @media only screen and (max-width: "769px") {
+        padding: 0 30px;
+      }
 
       .title {
         color: $white;
         font-size: 105px;
         font-weight: bold;
+        text-shadow: 0 2px 4px rgba($black, 0.25);
+
+        @media only screen and (max-width: "1280px") {
+          font-size: 80px;
+        }
+
+        @media only screen and (max-width: "991px") {
+          font-size: 60px;
+        }
+
+        @media only screen and (max-width: "550px") {
+          font-size: 40px;
+        }
+
+        @media only screen and (max-width: "440px") {
+          font-size: 34px;
+        }
       }
 
       .subtitle {
         color: $primaryLight;
         font-size: 45px;
         font-weight: lighter;
+        text-shadow: 0 2px 4px rgba($black, 0.15);
+
+        @media only screen and (max-width: "1280px") {
+          font-size: 30px;
+        }
+
+        @media only screen and (max-width: "991px") {
+          font-size: 26px;
+        }
+
+        @media only screen and (max-width: "550px") {
+          font-size: 20px;
+        }
+
+        @media only screen and (max-width: "440px") {
+          font-size: 18px;
+        }
       }
     }
   }
@@ -98,6 +166,18 @@ main.home {
     max-width: 1400px;
     width: 100%;
     z-index: 2;
+
+    @media only screen and (max-width: "769px") {
+      margin: -60px 0 0 0;
+    }
+
+    @media only screen and (max-width: "550px") {
+      margin: -80px 0 0 0;
+    }
+
+    @media only screen and (max-width: "440px") {
+      margin: 0;
+    }
 
     .hire-button {
       align-items: center;
@@ -112,6 +192,16 @@ main.home {
       justify-content: center;
       max-width: 310px;
       width: 100%;
+
+      @media only screen and (max-width: "991px") {
+        height: 60px;
+        max-width: 220px;
+        font-size: 22px;
+      }
+
+      @media only screen and (max-width: "769px") {
+        border: 2px solid $white;
+      }
     }
   }
 
@@ -123,5 +213,9 @@ main.home {
     margin: 0 60px;
     max-width: 1400px;
     width: 100%;
+
+    @media only screen and (max-width: "991px") {
+      flex-direction: column;
+    }
   }
 }

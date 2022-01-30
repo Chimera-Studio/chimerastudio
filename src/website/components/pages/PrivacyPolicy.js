@@ -1,8 +1,12 @@
 // @flow
-import React from "react";
+import React, { useEffect } from "react";
 import type { Node } from "react";
 
 function PrivacyPolicy(): Node {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="privacy-policy">
       <div className="header">

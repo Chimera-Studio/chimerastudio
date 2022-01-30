@@ -21,7 +21,35 @@
     }
   },
   "form": {
-    "tagline": "Lets work together!"
+    "tagline": "Lets work together!",
+    "name": {
+      "label": "Name",
+      "placeholder": "Name..."
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "E-mail..."
+    },
+    "details": {
+      "label": "Tell us about your project",
+      "placeholder": "My project is about..."
+    },
+    "references": {
+      "label": "Send us links to references",
+      "placeholder": "References..."
+    },
+    "budget": {
+      "label": "Your budget",
+      "placeholder": "£££"
+    },
+    "deadline": {
+      "label": "Project deadline",
+      "placeholder": "DD/MM/YYYY"
+    },
+    "actions": {
+      "reset": "Reset form",
+      "submit": "Submit form"
+    }
   },
   "footer": {
     "copy": "Chimera Studio. All rights reserved.",

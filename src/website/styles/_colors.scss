@@ -3,13 +3,14 @@ $blackTransparent: #00000030;
 $grayDark: #727272;
 $grayLight: #eaeaea;
 $primary: #524584;
-$primaryMid: #766b9c;
 $primaryLight: #aba4c2;
+$primaryMid: #766b9c;
 $primaryTransparent: #52458430;
-$whiteTint: #eceaf5;
+$red: #e25050;
 $white: #ffffff;
-$white70: #f8f8f8b3;
 $white20: #f8f8f833;
+$white70: #f8f8f8b3;
+$whiteTint: #eceaf5;
 
 :export {
   black: $black;
@@ -17,11 +18,12 @@ $white20: #f8f8f833;
   grayDark: $grayDark;
   grayLight: $grayLight;
   primary: $primary;
-  primaryMid: $primaryMid;
   primaryLight: $primaryLight;
+  primaryMid: $primaryMid;
   primaryTransparent: $primaryTransparent;
-  whiteTint: $whiteTint;
+  red: $red;
   white: $white;
-  white70: $white70;
   white20: $white20;
+  white70: $white70;
+  whiteTint: $whiteTint;
 }
