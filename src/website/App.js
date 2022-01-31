@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
-import { Provider } from "react-redux";
 import type { Node } from "react";
+import { Provider } from "react-redux";
 
 import Body from "./components/Body";
 import { configureStore } from "./store";

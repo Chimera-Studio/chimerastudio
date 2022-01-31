@@ -61,7 +61,11 @@ function Body(): Node {
     <Router>
       <Navigation callHireForm={() => setShowHireForm(true)} />
       <Routes>
-        <Route exact path="/" element={<Home callHireForm={() => setShowHireForm(true)} />} />
+        <Route
+          exact
+          path="/"
+          element={<Home callHireForm={() => setShowHireForm(true)} />}
+        />
         <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

@@ -1,19 +1,19 @@
 // @flow
 import React, { useEffect, useRef, useState } from "react";
 import type { Node } from "react";
-import { /* useDispatch, */ useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   GoogleReCaptchaProvider,
   GoogleReCaptcha,
 } from "react-google-recaptcha-v3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import { get, isEmpty, merge, forEach, capitalize } from "lodash";
+import { get, isEmpty, merge } from "lodash";
 import classNames from "classnames";
 import HeroBG from "../../assets/backgrounds/HeroBG";
 import useLocale from "../../locale";
 import { useEnvironmentInfo } from "../../utils";
-// import { actions } from "../../store/globalStore";
+import { actions } from "../../store/globalStore";
 import colors from "../../styles/_colors.scss";
 
 type Props = {
@@ -22,23 +22,51 @@ type Props = {
 
 function HireForm(props: Props): Node {
   const t = useLocale;
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const formSubmitted = useSelector((state) => state.global.formSubmitted);
   const environment = useEnvironmentInfo();
-  const modalRef = useRef(null);
+  const formRef = useRef(null);
   const [captcha, setCaptcha] = useState(null);
   const [form, setForm] = useState(null);
+  const [sendStatus, setSendStatus] = useState(null);
+  const [closeDelay, setCloseDelay] = useState(null);
+
+  let sendMessage = "";
+  if (sendStatus === "PENDING") {
+    sendMessage = t("form.send_message.pending");
+  }
+  if (sendStatus === "REJECTED") {
+    sendMessage = t("form.send_message.rejected");
+  }
+  if (sendStatus === "FULFILLED") {
+    sendMessage = t("form.send_message.fulfilled");
+  }
 
   useEffect(() => {
-    if (formSubmitted) props.close();
-  }, [formSubmitted, props]);
+    if (formSubmitted) {
+      setSendStatus(formSubmitted);
+      if (formSubmitted === "FULFILLED") {
+        dispatch(actions.clearFormStatus());
+        setCloseDelay(
+          setTimeout(() => {
+            setSendStatus(null);
+            props.close();
+          }, 3000)
+        );
+      }
+    }
+
+    return () => clearTimeout(closeDelay);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formSubmitted]);
 
   useEffect(() => {
     const handleClick = (e) => {
       if (
-        modalRef.current !== e.target &&
-        modalRef.current &&
-        !modalRef.current.contains(e.target)
+        formRef.current !== e.target &&
+        formRef.current &&
+        !formRef.current.contains(e.target)
       ) {
         props.close();
       }
@@ -47,14 +75,19 @@ function HireForm(props: Props): Node {
     window.addEventListener("click", handleClick);
 
     return () => window.removeEventListener("click", handleClick);
-  }, [props]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleFormInput = (origin: string, val: string) => {
     setForm(merge({}, form, { [origin]: val }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (
+      sendStatus === "PENDING" ||
+      !formRef.current ||
       isEmpty(get(form, "name")) ||
       isEmpty(get(form, "email")) ||
       isEmpty(get(form, "details")) ||
@@ -63,13 +96,8 @@ function HireForm(props: Props): Node {
       return;
     }
 
-    let message = "";
-    forEach(form, (val, key) => {
-      message =
-        message + capitalize(key.toString()) + ": " + val.toString() + "\n";
-    });
-
-    // dispatch(actions.sendForm(message));
+    setSendStatus("PENDING");
+    dispatch(actions.sendForm(formRef.current));
   };
 
   const formInputs = [
@@ -120,12 +148,13 @@ function HireForm(props: Props): Node {
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={
-        environment.isStaging || environment.isDevelopment
-          ? process.env.REACT_APP_RECAPTCHA_TEST
-          : process.env.REACT_APP_RECAPTCHA_PRODUCTION
+        environment.isProduction
+          ? process.env.REACT_APP_RECAPTCHA_PRODUCTION
+          : process.env.REACT_APP_RECAPTCHA_TEST
       }
     >
-      <form ref={modalRef} className="form-wrapper">
+      <form ref={formRef} onSubmit={handleSubmit} className="form-wrapper">
+        {sendStatus && <span className="form-notification">{sendMessage}</span>}
         <HeroBG
           className="form-bg"
           gradientColors={{
@@ -139,6 +168,7 @@ function HireForm(props: Props): Node {
           onClick={() => props.close()}
         />
         <h1>{t("form.tagline")}</h1>
+        <p>{t("form.free_option_info")}</p>
         <div className="form">
           {formInputs.map((input) => (
             <label key={input.id} htmlFor={input.id}>
@@ -153,6 +183,7 @@ function HireForm(props: Props): Node {
                     empty: isEmpty(get(form, input.id, "")),
                   })}
                   type={input.type}
+                  name={input.id}
                   required={input.required}
                   placeholder={input.placeholder}
                   value={get(form, input.id, "")}
@@ -166,6 +197,7 @@ function HireForm(props: Props): Node {
                     empty: isEmpty(get(form, input.id, "")),
                   })}
                   type={input.type}
+                  name={input.id}
                   required={input.required}
                   placeholder={input.placeholder}
                   value={get(form, input.id, "")}
@@ -187,9 +219,11 @@ function HireForm(props: Props): Node {
           <span className="reset" onClick={() => setForm(null)}>
             {t("form.actions.reset")}
           </span>
-          <span className="submit" onClick={handleSubmit}>
-            {t("form.actions.submit")}
-          </span>
+          <input
+            type="submit"
+            className="submit"
+            value={t("form.actions.submit")}
+          />
         </div>
       </form>
     </GoogleReCaptchaProvider>

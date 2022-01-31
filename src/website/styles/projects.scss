@@ -139,19 +139,20 @@
         }
 
         .react-slideshow-container {
+          cursor: grab;
           height: 100%;
           max-width: 280px;
-          width: 100%;
           transition: 0.3s;
+          width: 100%;
 
           .react-slideshow-wrapper {
             border-radius: 30px;
           }
 
-          &:hover .arrow {
-            opacity: 1;
-            visibility: visible;
-          }
+          // &:hover .arrow {
+          //   opacity: 1;
+          //   visibility: visible;
+          // }
 
           .arrow {
             background-color: $white;
@@ -247,12 +248,47 @@
 
         a {
           cursor: pointer;
+          * {
+            transition: 0.3s;
+          }
+
+          &:hover {
+            svg {
+              outline: 2px solid $white;
+
+              .fill-bg {
+                fill: $primary;
+              }
+
+              .fill-primary {
+                fill: $white;
+              }
+
+              .fill-primaryLight {
+                fill: $white70;
+              }
+            }
+          }
 
           svg {
+            border-radius: 18px;
             box-shadow: 0 5px 10px 0 rgba($black, 0.2);
             height: 60px;
-            border-radius: 18px;
+            outline-offset: -2px;
+            outline: 2px solid transparent;
             overflow: hidden;
+
+            .fill-bg {
+              fill: $white;
+            }
+
+            .fill-primary {
+              fill: $grayDark;
+            }
+
+            .fill-primaryLight {
+              fill: $grayMid;
+            }
           }
         }
       }

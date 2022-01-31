@@ -22,6 +22,7 @@
   },
   "form": {
     "tagline": "Lets work together!",
+    "free_option_info": "If you have a project but don't want to/don't have the money to hire us, you can ask us to work for *FREE. Depending if we like a project & believe in its success we might accept with a condition that we will get an agreed-upon percentage of your business.",
     "name": {
       "label": "Name",
       "placeholder": "Name..."
@@ -40,7 +41,7 @@
     },
     "budget": {
       "label": "Your budget",
-      "placeholder": "£££"
+      "placeholder": "£££ / *Free"
     },
     "deadline": {
       "label": "Project deadline",
@@ -49,6 +50,11 @@
     "actions": {
       "reset": "Reset form",
       "submit": "Submit form"
+    },
+    "send_message": {
+      "pending": "Your message is being sent...",
+      "rejected": "Error. There was a problem sending the message!",
+      "fulfilled": "Sent succesfully!"
     }
   },
   "footer": {

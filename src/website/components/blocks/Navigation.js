@@ -1,8 +1,9 @@
 // @flow
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { Node } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
+import { isEmpty } from "lodash";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +18,7 @@ function Navigation(props: Props): Node {
   const t = useLocale;
   const location = useLocation();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const body = document.querySelector("body");
   const links = [
     { path: "/#about", label: "About Us" },
     { path: "/#projects", label: "Projects" },
@@ -24,11 +26,15 @@ function Navigation(props: Props): Node {
 
   const toTop = () => {
     setShowMobileMenu(false);
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (body) body.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    if (!isEmpty(location.hash)) {
+      const section = document.querySelector(location.hash);
+      if (body) body.scrollTo(0, section ? section.offsetTop - 90 : 0);
+    }
+  }, [body, location]);
 
   return (
     <nav className="navigation">
@@ -37,15 +43,15 @@ function Navigation(props: Props): Node {
           <Logo />
         </Link>
         {links.map((link) => (
-          <a
+          <Link
             key={link.path}
-            href={link.path}
+            to={link.path}
             className={classNames("nav-link", {
               active: location.hash === link.path,
             })}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
         <button className="nav-hire" onClick={() => props.callHireForm()}>
           {t("home.hire-cta")}
@@ -62,16 +68,16 @@ function Navigation(props: Props): Node {
         })}
       >
         {links.map((link) => (
-          <a
+          <Link
             key={link.path}
-            href={link.path}
+            to={link.path}
             onClick={() => setShowMobileMenu(false)}
             className={classNames("nav-link", {
               active: location.hash === link.path,
             })}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
       </div>
     </nav>

@@ -20,9 +20,8 @@ export const useEnvironmentInfo = (): {
   ...
 } => {
   const development = window.location.hostname === "localhost";
-  // const production = window.location.hostname === "chimera-studio.com";
-  const production = !window.location.href.includes("staging");
-  const staging = window.location.href.includes("staging");
+  const production = window.location.hostname === "chimerastudio.co.uk";
+  const staging = window.location.hostname.includes("staging");
 
   return {
     isDevelopment: development,

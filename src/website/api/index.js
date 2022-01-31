@@ -1,10 +1,8 @@
 // @flow
 import axios from "axios";
-// import sgMail from "@sendgrid/mail";
+import emailjs from "@emailjs/browser";
 // import { database } from "./firebase.config";
 import cmsHeader from "./cms.config";
-
-// sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
 
 export const fetchCMS = async (query: any): any => {
   try {
@@ -24,19 +22,14 @@ export const fetchCMS = async (query: any): any => {
   }
 };
 
-// export const sendForm = async (message: string): any => {
-//   try {
-//     // await sgMail.send({
-//     //   to: "contact@dariodumlijan.com",
-//     //   from: "contact@dariodumlijan.com",
-//     //   subject: "Chimera - Hire form",
-//     //   text: message,
-//     //   // html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-//     // });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+export const sendForm = async (form: any): any => {
+  await emailjs.sendForm(
+    process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
+    process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
+    form,
+    process.env.REACT_APP_EMAIL_JS_USER_ID
+  );
+};
 
 // export const fetchFirebaseDoc = async (
 //   collection: string,

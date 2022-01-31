@@ -3,7 +3,10 @@ import React from "react";
 import type { Node } from "react";
 import { Slide } from "react-slideshow-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleLeft, faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronCircleLeft,
+  faChevronCircleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import PhoneModal from "../../assets/backgrounds/PhoneModal";
 import colors from "../../styles/_colors.scss";
 
@@ -11,7 +14,7 @@ type Props = {
   album: Array<string>,
 };
 
-function Footer(props: Props): Node {
+function PhoneSlideShow(props: Props): Node {
   const { album } = props;
 
   const properties = {
@@ -23,13 +26,20 @@ function Footer(props: Props): Node {
     autoplay: true,
     canSwipe: true,
     indicators: false,
-    prevArrow: <FontAwesomeIcon icon={faChevronCircleLeft} className="arrow prev" />,
-    nextArrow: <FontAwesomeIcon icon={faChevronCircleRight} className="arrow next" />,
+    prevArrow: (
+      <FontAwesomeIcon icon={faChevronCircleLeft} className="arrow prev" />
+    ),
+    nextArrow: (
+      <FontAwesomeIcon icon={faChevronCircleRight} className="arrow next" />
+    ),
   };
 
   return (
     <div className="slide-wrapper">
-      <PhoneModal borderColor={colors.blackTransparent} bgColor={colors.black} />
+      <PhoneModal
+        borderColor={colors.blackTransparent}
+        bgColor={colors.black}
+      />
       <div className="slider">
         <Slide {...properties}>
           {album.map((pic, index) => (
@@ -41,4 +51,4 @@ function Footer(props: Props): Node {
   );
 }
 
-export default Footer;
+export default PhoneSlideShow;
