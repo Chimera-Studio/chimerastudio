@@ -7,11 +7,13 @@ import {
   Navigate,
 } from "react-router-dom";
 import ReactDOM from "react-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { isEmpty } from "lodash";
 import type { Node } from "react";
 
 import Navigation from "./blocks/Navigation";
 import HireForm from "./blocks/HireForm";
+import Loading from "./elements/Loading";
 import ScrollToTop from "./elements/ScrollToTop";
 import Footer from "./elements/Footer";
 import Login from "../../staging/Login";
@@ -20,11 +22,17 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 import { useEnvironmentInfo } from "../utils";
 import { sessionStorageKeys } from "../tokens";
+import { actions } from "../store/cmsStore";
 
 function Body(): Node {
+  const dispatch = useDispatch();
   const environment = useEnvironmentInfo();
+  const cms = useSelector((state) => state.cms);
+  const [initLoad, setInitLoad] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const [showHireForm, setShowHireForm] = useState(false);
+  const isLoading =
+    isEmpty(cms) || !["general", "team", "apps"].every((key) => key in cms);
 
   const handleLogin = (credentials: Object) => {
     if (
@@ -35,15 +43,25 @@ function Body(): Node {
         sessionStorageKeys.staginUser,
         JSON.stringify(credentials)
       );
+      dispatch(actions.fetchWeb());
+      setInitLoad(false);
       setAuthenticated(true);
     }
   };
 
   useEffect(() => {
-    const credentials = window.sessionStorage.getItem(
-      sessionStorageKeys.staginUser
-    );
-    if (!isEmpty(credentials)) handleLogin(JSON.parse(credentials));
+    if (!environment.isProduction) {
+      const credentials = window.sessionStorage.getItem(
+        sessionStorageKeys.staginUser
+      );
+      if (!isEmpty(credentials)) handleLogin(JSON.parse(credentials));
+    }
+
+    if (initLoad && !environment.isStaging) {
+      dispatch(actions.fetchWeb());
+      setInitLoad(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!authenticated && environment.isStaging) {
@@ -56,6 +74,8 @@ function Body(): Node {
       </Router>
     );
   }
+
+  if (isLoading) return <Loading />;
 
   return (
     <Router>

@@ -10,10 +10,10 @@ import PlayStore from "../../assets/icons/PlayStore";
 import colors from "../../styles/_colors.scss";
 
 type ProjectProps = {
-  album: Array<string>,
+  slideshowCollection: Object,
   appName: string,
   appTagline: string,
-  paragraph: string,
+  description: string,
   appStoreLink: string,
   playStoreLink: string,
 };
@@ -53,13 +53,13 @@ function Project(props: Props): Node {
         <div className="square-background" />
       )}
       <div className={contentClass}>
-        <PhoneSlideShow album={data.album} />
+        <PhoneSlideShow album={data.slideshowCollection.items} />
         <div className="project-content">
           <h1 className="project-title">
             {data.appName}
             <span className="project-tagline"> - {data.appTagline}</span>
           </h1>
-          <span className="project-paragraph">{data.paragraph}</span>
+          <span className="project-paragraph">{data.description}</span>
           <div className="cta-wrapper">
             {!isEmpty(data.appStoreLink) && (
               <a href={data.appStoreLink} target="_blank">

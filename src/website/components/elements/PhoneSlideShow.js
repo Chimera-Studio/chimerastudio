@@ -11,7 +11,7 @@ import PhoneModal from "../../assets/backgrounds/PhoneModal";
 import colors from "../../styles/_colors.scss";
 
 type Props = {
-  album: Array<string>,
+  album: Array<Object>,
 };
 
 function PhoneSlideShow(props: Props): Node {
@@ -43,7 +43,7 @@ function PhoneSlideShow(props: Props): Node {
       <div className="slider">
         <Slide {...properties}>
           {album.map((pic, index) => (
-            <img key={pic} src={pic} alt={`slide-${index}`} />
+            <img key={pic.url} src={pic.url} alt={`slide-${index}`} />
           ))}
         </Slide>
       </div>

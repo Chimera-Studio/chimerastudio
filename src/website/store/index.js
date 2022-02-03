@@ -3,6 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { concat, forEach, get, isString } from "lodash";
+import { reducer as cmsStoreReducer } from "./cmsStore";
 import { reducer as globalStoreReducer } from "./globalStore";
 import { isPromise } from "../utils";
 
@@ -94,6 +95,7 @@ export const configureStore = (
 
   return createStore(
     combineReducers({
+      cms: cmsStoreReducer,
       global: globalStoreReducer,
     }),
     initialState,

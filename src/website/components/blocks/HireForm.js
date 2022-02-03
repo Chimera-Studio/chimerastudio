@@ -91,7 +91,7 @@ function HireForm(props: Props): Node {
       isEmpty(get(form, "name")) ||
       isEmpty(get(form, "email")) ||
       isEmpty(get(form, "details")) ||
-      (!environment.isStaging && !environment.isDevelopment && isEmpty(captcha))
+      (environment.isProduction && isEmpty(captcha))
     ) {
       return;
     }

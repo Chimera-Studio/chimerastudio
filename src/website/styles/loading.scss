@@ -16,7 +16,7 @@
 .loading-fixed,
 .loading-relative {
   align-items: center;
-  background-color: $white;
+  background-color: $primary;
   color: $white;
   display: flex;
   flex-direction: column;
@@ -42,10 +42,10 @@
     -webkit-animation: spinner 1.1s infinite linear;
     -webkit-transform: translateZ(0);
     animation: spinner 1.1s infinite linear;
-    border-bottom: 1.1em solid $primaryTransparent;
-    border-left: 1.1em solid $primary;
-    border-right: 1.1em solid $primaryTransparent;
-    border-top: 1.1em solid $primaryTransparent;
+    border-bottom: 1.1em solid $white20;
+    border-left: 1.1em solid $white;
+    border-right: 1.1em solid $white20;
+    border-top: 1.1em solid $white20;
     font-size: 10px;
     margin: 60px auto;
     position: relative;
