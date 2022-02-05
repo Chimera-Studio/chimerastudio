@@ -31,6 +31,8 @@ function Body(): Node {
   const [initLoad, setInitLoad] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const [showHireForm, setShowHireForm] = useState(false);
+  const [animationDelay, setAnimationDelay] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(true);
   const isLoading =
     isEmpty(cms) || !["general", "team", "apps"].every((key) => key in cms);
 
@@ -48,6 +50,17 @@ function Body(): Node {
       setAuthenticated(true);
     }
   };
+
+  useEffect(() => {
+    setAnimationDelay(
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 1000)
+    );
+
+    return () => clearTimeout(animationDelay);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
 
   useEffect(() => {
     if (!environment.isProduction) {
@@ -75,7 +88,7 @@ function Body(): Node {
     );
   }
 
-  if (isLoading) return <Loading />;
+  if (isLoading || isAnimating) return <Loading finished={!isLoading} />;
 
   return (
     <Router>
