@@ -2,13 +2,16 @@
 import React, { useEffect } from "react";
 import type { Node } from "react";
 import { useSelector } from "react-redux";
+import Typewriter from "../elements/Typewriter";
 import TeamMemberColumn from "../elements/TeamMemberColumn";
 import Project from "../elements/Project";
 import Logo from "../../assets/icons/Logo";
 import HeroBG from "../../assets/backgrounds/HeroBG";
 import useLocale from "../../locale";
+import { elementInView } from "../../utils";
 import colors from "../../styles/_colors.scss";
 import type { State } from "../../store/cmsStore";
+import type { ReduxState } from "../../types";
 
 type Props = {
   callHireForm: Function,
@@ -16,14 +19,10 @@ type Props = {
 
 function Home(props: Props): Node {
   const t = useLocale;
-  const cms: State = useSelector((state) => state.cms);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const cms: State = useSelector((state: ReduxState) => state.cms);
 
   const styleTitle = (string: string) => {
-    const firstWord = string.split(" ")[0];
+    const firstWord: string = string.split(" ")[0];
 
     return (
       <h1 className="section-title">
@@ -32,6 +31,27 @@ function Home(props: Props): Node {
       </h1>
     );
   };
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    const sections = {
+      members: document.querySelector(".members-wrapper"),
+    };
+
+    const handleAnimation = () => {
+      if (!body || !sections.members) return;
+      if (elementInView(body, sections.members.offsetTop)) {
+        // $FlowFixMe
+        sections.members.classList.add("animate-in");
+      }
+    };
+
+    if (body) body.addEventListener("scroll", handleAnimation);
+
+    return () => {
+      if (body) body.removeEventListener("scroll", handleAnimation);
+    };
+  }, []);
 
   return (
     <main className="home">
@@ -46,7 +66,7 @@ function Home(props: Props): Node {
         <Logo className="hero-logo" />
         <div className="content">
           <h1 className="title">{cms.general.heroTitle}</h1>
-          <h4 className="subtitle">{cms.general.heroSubtitle}</h4>
+          <Typewriter className="subtitle" message={cms.general.heroSubtitle} />
         </div>
       </section>
       <section id="hire-us">

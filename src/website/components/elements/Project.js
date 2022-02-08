@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import type { Node } from "react";
 import { isEmpty } from "lodash";
 import classNames from "classnames";
@@ -8,6 +8,7 @@ import HeroBG from "../../assets/backgrounds/HeroBG";
 import AppStore from "../../assets/icons/AppStore";
 import PlayStore from "../../assets/icons/PlayStore";
 import colors from "../../styles/_colors.scss";
+import { elementInView } from "../../utils";
 
 type ProjectProps = {
   slideshowCollection: Object,
@@ -26,6 +27,7 @@ type Props = {
 };
 
 function Project(props: Props): Node {
+  const wrapperRef: any = useRef(null);
   const { data } = props;
   const bgClassDiagonal = classNames("style-background", {
     isFirst: props.isFirst,
@@ -39,8 +41,25 @@ function Project(props: Props): Node {
     isEven: Number(props.index) % 2 === 0,
   });
 
+  useEffect(() => {
+    const body = document.querySelector("body");
+
+    const handleAnimation = () => {
+      if (!body || !wrapperRef.current) return;
+      if (elementInView(body, wrapperRef.current.offsetTop)) {
+        wrapperRef.current.classList.add("animate-in");
+      }
+    };
+
+    if (body) body.addEventListener("scroll", handleAnimation);
+
+    return () => {
+      if (body) body.removeEventListener("scroll", handleAnimation);
+    };
+  }, []);
+
   return (
-    <div className={projectClass}>
+    <div ref={wrapperRef} className={projectClass}>
       {props.isFirst || props.isLast ? (
         <HeroBG
           className={bgClassDiagonal}

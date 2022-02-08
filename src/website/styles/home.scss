@@ -189,7 +189,12 @@ main.home {
       height: 80px;
       justify-content: center;
       max-width: 310px;
+      transition: 0.3s;
       width: 100%;
+
+      &:hover {
+        box-shadow: 0 6px 8px rgba($black, 0.45);
+      }
 
       @media only screen and (max-width: "991px") {
         height: 60px;

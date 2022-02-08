@@ -8,6 +8,11 @@ import { useLocationInfo } from "../../utils";
 function Footer(): Node {
   const t = useLocale;
   const locationInfo = useLocationInfo();
+  const body = document.querySelector("body");
+
+  const toTop = () => {
+    if (body) body.scrollTo(0, 0);
+  };
 
   return (
     <footer id="footer">
@@ -15,7 +20,7 @@ function Footer(): Node {
         &copy; {new Date().getFullYear()} {t("footer.copy")}
       </span>
       {locationInfo.isHome && (
-        <Link to="/privacy-policy" className="privacy-policy">
+        <Link to="/privacy-policy" onClick={toTop} className="privacy-policy">
           <span>{t("footer.privacy_policy")}</span>
         </Link>
       )}

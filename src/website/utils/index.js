@@ -1,5 +1,6 @@
 // @flow
 import { useLocation } from "react-router";
+import { inRange } from "lodash";
 
 // $FlowFixMe
 export const isPromise = (p) => !!p && typeof p.then === "function";
@@ -28,4 +29,24 @@ export const useEnvironmentInfo = (): {
     isProduction: production,
     isStaging: staging,
   };
+};
+
+export const elementInView = (
+  body: HTMLBodyElement,
+  elementPosition: number
+): boolean => {
+  if (!body) return false;
+
+  const smallOffset = 100;
+  if (
+    inRange(
+      elementPosition + smallOffset,
+      body.scrollTop,
+      body.scrollTop + body.clientHeight
+    )
+  ) {
+    return true;
+  }
+
+  return false;
 };
