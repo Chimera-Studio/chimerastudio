@@ -97,26 +97,30 @@
 }
 
 .project-wrapper {
-  opacity: 0;
+  .project-content-wrapper {
+    opacity: 0;
+  }
 
   &.animate-in {
-    opacity: 1;
+    .project-content-wrapper {
+      opacity: 1;
 
-    .isOdd {
-      .slide-wrapper {
-        @include animateFromLeft;
+      &.isOdd {
+        .slide-wrapper {
+          @include animateFromLeft;
+        }
+        .project-content {
+          @include animateFromRight;
+        }
       }
-      .project-content {
-        @include animateFromRight;
-      }
-    }
 
-    .isEven {
-      .slide-wrapper {
-        @include animateFromRight;
-      }
-      .project-content {
-        @include animateFromLeft;
+      &.isEven {
+        .slide-wrapper {
+          @include animateFromRight;
+        }
+        .project-content {
+          @include animateFromLeft;
+        }
       }
     }
   }
