@@ -18,16 +18,18 @@ export const useEnvironmentInfo = (): {
   isDevelopment: boolean,
   isProduction: boolean,
   isStaging: boolean,
-  ...
+  isInvalidHost: boolean,
 } => {
   const development = window.location.hostname === "localhost";
   const production = window.location.hostname === "chimerastudio.co.uk";
-  const staging = window.location.hostname.includes("staging");
+  const staging = window.location.hostname === "staging.chimerastudio.co.uk";
+  const invalidHost = !development && !production && !staging;
 
   return {
     isDevelopment: development,
     isProduction: production,
     isStaging: staging,
+    isInvalidHost: invalidHost,
   };
 };
 
