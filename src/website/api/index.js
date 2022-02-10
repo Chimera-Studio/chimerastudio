@@ -1,6 +1,7 @@
 // @flow
 import axios from "axios";
-import { database } from "./firebase.config";
+import emailjs from "@emailjs/browser";
+// import { database } from "./firebase.config";
 import cmsHeader from "./cms.config";
 
 export const fetchCMS = async (query: any): any => {
@@ -21,11 +22,20 @@ export const fetchCMS = async (query: any): any => {
   }
 };
 
-export const fetchFirebaseDoc = async (
-  collection: string,
-  doc: string
-): any => {
-  const response = await database.collection(collection).doc(doc).get();
-
-  return response;
+export const sendForm = async (form: any): any => {
+  await emailjs.sendForm(
+    process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
+    process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
+    form,
+    process.env.REACT_APP_EMAIL_JS_USER_ID
+  );
 };
+
+// export const fetchFirebaseDoc = async (
+//   collection: string,
+//   doc: string
+// ): any => {
+//   const response = await database.collection(collection).doc(doc).get();
+
+//   return response;
+// };
