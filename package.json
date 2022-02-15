@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@babel/eslint-parser": "^7.5.4",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@contentful/rich-text-plain-text-renderer": "^15.3.0",
     "@contentful/rich-text-react-renderer": "^15.3.0",
     "@contentful/rich-text-types": "^15.3.3",
@@ -31,6 +34,7 @@
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "react-router-hash-link": "^2.4.3",
+    "react-router-sitemap-generator": "^0.0.8",
     "react-scripts": "5.0.0",
     "react-slideshow-image": "^3.6.1",
     "redux": "^4.1.1",
@@ -45,7 +49,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .eslintignore ./src --ext js",
     "flow": "flow",
-    "deploy": "react-scripts build && firebase deploy --only hosting"
+    "deploy": "react-scripts build && firebase deploy --only hosting",
+    "sitemap": "yarn babel-node scripts/sitemap"
   },
   "eslintConfig": {
     "extends": [
