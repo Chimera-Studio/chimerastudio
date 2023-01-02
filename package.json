@@ -49,8 +49,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .eslintignore ./src --ext js",
     "flow": "flow",
-    "deploy": "react-scripts build && firebase deploy --only hosting",
-    "sitemap": "yarn babel-node scripts/sitemap"
+    "sitemap": "yarn node scripts/sitemap",
+    "deploy": "yarn node scripts/sitemap && react-scripts build && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": [
