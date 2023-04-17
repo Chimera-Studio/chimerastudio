@@ -2,42 +2,21 @@
 
 ###### Built with React
 
-#### Custom commands
+## Visit our App Store profiles
 
-Configure deploy command to build and publish chnages to hosting provider
+-   [Google Play Store](https://play.google.com/store/apps/dev?id=5565198170046611244)
+-   [App Store](https://apps.apple.com/us/developer/dario-dumlijan/id1561674382)
 
-    yarn deploy
+## The Chimera Team
 
-#### Enviroment variables
+-   [Dario Dumlijan - Full-stack Developer](https://dariodumlijan.com/design/business-card)
+-   [Boris Vida - UI/UX Designer](https://behance.net/lemondesignuk)
+-   [Damjan Gazibaric - Assets Designer](https://behance.net/gazdadesigns)
 
-These are some of the variables already implemented in this project that are needed to run.
+[More by Chimera Studio](https://linktr.ee/chimerastudiotm)
 
-> Name used in under construction page & footer
-> Staging login credentials
+[Privacy Policy](https://chimerastudio.co.uk/privacy-policy)
 
-```
-REACT_APP_PROJECT_NAME="Project Name"
-REACT_APP_STAGING_USERNAME="<secret>"
-REACT_APP_STAGING_PASSWORD="<secret>"
-```
+###### Copyright
 
-> CMS secrets
-
-```
-REACT_APP_CMS_AUTHORIZATION="<secret>"
-REACT_APP_CMS_SPACE_ID="<secret>"
-REACT_APP_CMS_GRAPHQL_URL="<secret> + REACT_APP_CMS_SPACE_ID"
-```
-
-> Firebase secrets (if needed)
-
-```
-REACT_APP_FIREBASE_APIKEY="<secret>"
-REACT_APP_FIREBASE_AUTHDOMAIN="<secret>"
-REACT_APP_FIREBASE_DATABASEURL="<secret>"
-REACT_APP_FIREBASE_PROJECTID="<secret>"
-REACT_APP_FIREBASE_STORAGEBUCKET="<secret>"
-REACT_APP_FIREBASE_MESSAGINGSENDERID="<secret>"
-REACT_APP_FIREBASE_APPID="<secret>"
-REACT_APP_FIREBASE_MEASUREMENTID="<secret>"
-```
+© 2023 Chimera Studio
