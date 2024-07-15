@@ -1,22 +1,73 @@
-# Chimera Studio - Offical Website
+![logotype](.github/docs/logotype.svg)
 
-###### Built with React
+# Official website of Chimera Studio
 
-## Visit our App Store profiles
+### Creative design studio transforming sparks and ideas into brands and experiences.
 
--   [Google Play Store](https://play.google.com/store/apps/dev?id=5565198170046611244)
--   [App Store](https://apps.apple.com/us/developer/dario-dumlijan/id1561674382)
+Check out the live site at [studiolumistra.com](https://chimerastudio.co.uk)
 
-## The Chimera Team
+- Designed and Developed by: [Chimera Studio](https://chimerastudio.co.uk)
 
--   [Dario Dumlijan - Full-stack Developer](https://dariodumlijan.com/design/business-card)
--   [Boris Vida - UI/UX Designer](https://behance.net/lemondesignuk)
--   [Damjan Gazibaric - Assets Designer](https://behance.net/gazdadesigns)
+----
 
-[More by Chimera Studio](https://linktr.ee/chimerastudiotm)
+## Deployment
 
-[Privacy Policy](https://chimerastudio.co.uk/privacy-policy)
+This project uses [Github Actions](https://github.com/features/actions) to trigger a deployment and is hosted using [GitHub pages](https://pages.github.com/)
 
-###### Copyright
+The deployment is triggered by manually running the ["Deploy" workflow](https://github.com/lumistra/lumistra/actions/workflows/deploy.yml)
 
-© 2023 Chimera Studio
+----
+
+## Development
+
+###### Developed using [Next.js](https://nextjs.org) & [TypeScript](https://www.typescriptlang.org)
+
+### Requirements
+
+| Dependency | Version  |
+| ------------------ | -------- |
+| [Node.js](https://nodejs.org/en) | `>=20` |
+| [yarn](https://yarnpkg.com) | `>=1.22.22` |
+| [Storyblok](https://www.storyblok.com) | `N/A` |
+
+### Commands
+
+To install & setup dependencies:
+```sh
+yarn (install)
+```
+
+Run the DEV server for local development in the browser:
+```sh
+yarn dev
+```
+The application will be available at [`localhost:3000`](http://localhost:3000)
+
+To build the application for production:
+```sh
+yarn build
+yarn build:sitemap
+```
+
+Run tests & linters
+```sh
+yarn tsc
+
+yarn lint
+
+yarn test
+```
+
+Get test coverage report:
+```sh
+yarn test:coverage
+```
+
+### Project .env variables
+```sh
+STORYBLOK_API_TOKEN="<secret>" # Required
+GTM_ID="<secret>"
+SITE_URL="https://studiolumistra.com"
+BASE_PATH="lumistra" # Not required with a custom domain
+MOCK_API="true" # To minimise API calls in development
+```
