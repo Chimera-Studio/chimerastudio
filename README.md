@@ -1,8 +1,8 @@
-![logotype](.github/docs/logotype.svg)
+<img src=".github/docs/logo.svg" alt="logo" height="100px" width="100px" />
 
 # Official website of Chimera Studio
 
-### Creative design studio transforming sparks and ideas into brands and experiences.
+We are an app developing collective armed with a wide spread of digital skills, ready to deliver fun and entertainment. Our recent leaps in progress have allowed us to offer in-organisation project optimisations and idea realisations. It's simple, if you have a good idea for an app, talk to us.
 
 Check out the live site at [studiolumistra.com](https://chimerastudio.co.uk)
 
@@ -14,7 +14,7 @@ Check out the live site at [studiolumistra.com](https://chimerastudio.co.uk)
 
 This project uses [Github Actions](https://github.com/features/actions) to trigger a deployment and is hosted using [GitHub pages](https://pages.github.com/)
 
-The deployment is triggered by manually running the ["Deploy" workflow](https://github.com/lumistra/lumistra/actions/workflows/deploy.yml)
+The deployment is triggered by manually running the ["Deploy" workflow](https://github.com/Chimera-Studio/chimerastudio/actions/workflows/deploy.yml)
 
 ----
 
@@ -28,7 +28,6 @@ The deployment is triggered by manually running the ["Deploy" workflow](https://
 | ------------------ | -------- |
 | [Node.js](https://nodejs.org/en) | `>=20` |
 | [yarn](https://yarnpkg.com) | `>=1.22.22` |
-| [Storyblok](https://www.storyblok.com) | `N/A` |
 
 ### Commands
 
@@ -65,9 +64,7 @@ yarn test:coverage
 
 ### Project .env variables
 ```sh
-STORYBLOK_API_TOKEN="<secret>" # Required
 GTM_ID="<secret>"
-SITE_URL="https://studiolumistra.com"
-BASE_PATH="lumistra" # Not required with a custom domain
-MOCK_API="true" # To minimise API calls in development
+SITE_URL="https://chimerastudio.co.uk"
+BASE_PATH="chimerastudio" # Not required with a custom domain
 ```
