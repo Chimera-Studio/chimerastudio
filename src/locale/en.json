@@ -1,0 +1,59 @@
+{
+  "home": {
+    "header": {
+      "title": "Chimera Studio",
+      "subtitle": "We design, develop & optimise"
+    },
+    "hire-cta": "Hire us",
+    "about": {
+      "title": "Our 3-Man-Squad",
+      "paragraph": "We are a UK based app developing collective armed with a wide spread of digital skills, ready to deliver fun and entertainment. Our recent leaps in progress have allowed us to offer in-organisation project optimisations and idea realisations. It's simple, if you have a good idea for an app, talk to us.",
+      "cta": "Visit"
+    },
+    "team": {
+      "member_1": {
+        "name": "Damjan G.",
+        "job_title": "Designer",
+        "description": "I'm the one who designs stuff every now and then. Usually complicating simple ideas.",
+        "cta": "https://www.linkedin.com/in/damjangazibaric/"
+      },
+      "member_2": {
+        "name": "Boris V.",
+        "job_title": "Designer",
+        "description": "I'm the one who designs stuff every now and then. Usually simplifying complicated ideas.",
+        "cta": "https://studiolumistra.com/"
+      },
+      "member_3": {
+        "name": "Dario D.",
+        "job_title": "Developer",
+        "description": "I'm the one that makes everything work. All while drinking a ton of coffee.",
+        "cta": "https://dariodumlijan.com/"
+      }
+    },
+    "projects": {
+      "title": "Our Latest Apps",
+      "paragraph": "At the very moment you can find three of our latest apps at the Play Store and App Store. We do not only specialise in entertainment, but educational tools as well. Negative Harmony is one of them, currently a leading circle-of-fifths-based music producing tool on the market.",
+      "items": {
+        "app_1": {
+          "name": "Negative Harmony",
+          "tagline": "Simplified",
+          "description": "Negative Harmony is an app made to make the musical theory of negative harmony easier to understand and visualise. The app shows in a clear and easy way to understand what are the notes inside the chosen scale/mode and their relative negative harmony while also representing this inside the circle of fifths with the blue axis showing the relationship between each note."
+        },
+        "app_2": {
+          "name": "Ritmo",
+          "tagline": "Beatmaking Redefined",
+          "description": "Ritmo is a redefined beatmaker. It is meant to help people create new and interesting beats/rhythms in a way they never made them before. Encouraging the user to think of a beat as a circle instead of a straight path, you can more easily see and find new possibilities."
+        },
+        "app_3": {
+          "name": "Chug",
+          "tagline": "Perfect Party Started",
+          "description": "Chug is a perfect party starter drinking game meant to be played with others. You will discover funny, interesting and weird things you didn't know about your friends. There are over 700 unique sentences across 12 themes and every person is sure to take a sip at least a few times."
+        }
+      }
+    }
+  },
+  "footer": {
+    "copy": "Chimera Studio. All rights reserved.",
+    "privacy_policy": "PP"
+  }
+}
