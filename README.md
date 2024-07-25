@@ -4,7 +4,7 @@
 
 We are an app developing collective armed with a wide spread of digital skills, ready to deliver fun and entertainment. Our recent leaps in progress have allowed us to offer in-organisation project optimisations and idea realisations. It's simple, if you have a good idea for an app, talk to us.
 
-Check out the live site at [studiolumistra.com](https://chimerastudio.co.uk)
+Check out the live site at [chimerastudio.co.uk](https://chimerastudio.co.uk)
 
 - Designed and Developed by: [Chimera Studio](https://chimerastudio.co.uk)
 
