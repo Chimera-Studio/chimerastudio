@@ -1,0 +1,138 @@
+.navigation {
+  align-items: center;
+  background-color: $white;
+  box-shadow: 0 6px 24px rgba($black, 0.4);
+  display: flex;
+  height: 75px;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 99;
+
+  .navigation-wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    padding: 0 60px;
+    max-width: 1520px;
+    width: 100%;
+    z-index: 2;
+
+    @media only screen and (max-width: "769px") {
+      padding: 0 30px;
+      background-color: $white;
+    }
+
+    .logo {
+      cursor: pointer;
+      fill: $primary;
+      height: 35px;
+      width: 35px;
+    }
+
+    .nav-link {
+      color: rgba($primary, 0.8);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: normal;
+      margin-left: 100px;
+      transition: 0.3s;
+
+      @media only screen and (max-width: "769px") {
+        display: none;
+      }
+
+      &:hover,
+      &.active {
+        color: $primary;
+      }
+    }
+
+    .nav-hire {
+      background-color: $primaryMid;
+      border-radius: 100vw;
+      color: $white;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      margin-left: auto;
+      padding: 12px 20px;
+      transition: 0.3s;
+
+      @media only screen and (max-width: "769px") {
+        margin-right: 60px;
+      }
+
+      @media only screen and (max-width: "450px") {
+        margin: 0 auto;
+        align-self: center;
+      }
+
+      &:hover {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      color: $grayDark;
+      font-size: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      @media only screen and (max-width: "769px") {
+        display: block;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+    gap: 100px;
+    padding: 80px 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    box-shadow: 0px 10px 20px -10px rgba($black, 0.4);
+    z-index: 1;
+    transition: 0.5s;
+    transform: translateY(-150%);
+
+    @media only screen and (max-width: "769px") {
+      display: flex;
+    }
+
+    &.show {
+      top: 75px;
+      transform: translateY(0);
+    }
+
+    .nav-link {
+      color: rgba($primary, 0.8);
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: block;
+
+      &:hover,
+      &.active {
+        color: $primary;
+      }
+    }
+  }
+}

@@ -12,10 +12,16 @@
     "test:coverage": "jest --passWithNoTests --watchAll=false --coverage"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "classnames": "^2.5.1",
+    "lodash": "^4.17.21",
     "next": "14.2.5",
     "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-slideshow-image": "^4.3.1",
     "vanilla-cookieconsent": "^3.0.1"
   },
   "devDependencies": {
@@ -23,6 +29,7 @@
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.12",
+    "@types/lodash": "^4.17.7",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

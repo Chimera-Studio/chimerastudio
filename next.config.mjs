@@ -15,8 +15,8 @@ const nextConfig = {
   ...conditionalConfig,
   env: {
     ...conditionalConfig,
-    gtmId: process.env.GTM_ID,
     siteUrl: process.env.SITE_URL,
+    // gtmId: process.env.GTM_ID,
   },
   images: {
     unoptimized: true,
