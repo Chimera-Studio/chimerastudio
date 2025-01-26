@@ -208,6 +208,11 @@
         max-width: none;
       }
 
+      a {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
       .project-title {
         color: $white;
         font-size: 40px;
@@ -229,8 +234,16 @@
       .project-paragraph {
         color: $white;
         font-size: 16px;
-        line-height: 40px;
+        line-height: 36px;
         margin: 50px 0;
+        white-space: pre-line;
+      }
+
+      .award-paragraph {
+        align-items: center;
+        display: flex;
+        gap: 30px;
+        margin-top: 40px;
       }
 
       .cta-wrapper {

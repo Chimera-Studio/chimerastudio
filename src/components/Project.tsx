@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import { isEmpty } from 'lodash';
+import Image from 'next/image';
 import PhoneSlideShow from './PhoneSlideShow';
 import HeroBG from '../assets/backgrounds/HeroBG';
 import AppStore from '../assets/icons/AppStore';
@@ -12,7 +13,7 @@ import { elementInView } from '../utils';
 export type ProjectProps = {
   name: string,
   tagline: string,
-  description: string,
+  description: any,
   appStoreLink: string,
   playStoreLink: string,
   slideshow: string[],
@@ -77,7 +78,21 @@ function Project(props: Props) {
             {data.name}
             <span className="project-tagline"> - {data.tagline}</span>
           </h1>
-          <span className="project-paragraph">{data.description}</span>
+          <div className="project-paragraph">
+            <p>{data.description}</p>
+            {data.name === 'Negative Harmony' && (
+              <div className="award-paragraph">
+                <Image
+                  src="/images/negative_harmony/design-awards.png"
+                  alt="design_awards"
+                  height={80}
+                  width={80}
+                />
+                <p>The app has been awarded a place among the Best Android and iOS App Designs on DesignRush. You can explore the inspiring designs on <a href="https://www.designrush.com/best-designs/apps" target="_blank">DesignRush&apos;s Best Designs page.</a>
+                </p>
+              </div>
+            )}
+          </div>
           <div className="cta-wrapper">
             {!isEmpty(data.appStoreLink) && (
               <a href={data.appStoreLink} target="_blank">

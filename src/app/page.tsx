@@ -98,19 +98,19 @@ export default function Home() {
         '/images/ritmo/slide_5.jpg',
       ],
     },
-    {
-      name: t('home.projects.items.app_3.name'),
-      tagline: t('home.projects.items.app_3.tagline'),
-      description: t('home.projects.items.app_3.description'),
-      appStoreLink: '',
-      playStoreLink: 'https://play.google.com/store/apps/details?id=com.chimerastudio.chug',
-      slideshow: [
-        '/images/chug/slide_1.jpg',
-        '/images/chug/slide_2.jpg',
-        '/images/chug/slide_3.jpg',
-        '/images/chug/slide_4.jpg',
-      ],
-    },
+    // {
+    //   name: t('home.projects.items.app_3.name'),
+    //   tagline: t('home.projects.items.app_3.tagline'),
+    //   description: t('home.projects.items.app_3.description'),
+    //   appStoreLink: '',
+    //   playStoreLink: 'https://play.google.com/store/apps/details?id=com.chimerastudio.chug',
+    //   slideshow: [
+    //     '/images/chug/slide_1.jpg',
+    //     '/images/chug/slide_2.jpg',
+    //     '/images/chug/slide_3.jpg',
+    //     '/images/chug/slide_4.jpg',
+    //   ],
+    // },
   ];
 
   return (
